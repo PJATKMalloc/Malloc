@@ -25,7 +25,7 @@ const createTable = (data) => {
         var el = data[i];
 
         out+= 
-            "<tr><td>" + el.City + "</td><td>" + el.Street + " " + el.StreetNumber + "</td><td>" + el.PostalCode +"</td><td onclick='onDelete(" + i + ")'>Delete</td></tr>";
+            "<tr><td>" + el.City + "</td><td>" + el.Street + " " + el.StreetNumber + "</td><td>" + el.PostalCode +"</td><td style='text-align:center;' onclick='onDelete(" + i + ")'><i class='far fa-times-circle'></i></td></tr>";
     }
 
     tb.innerHTML = out;
