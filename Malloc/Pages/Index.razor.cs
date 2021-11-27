@@ -18,8 +18,6 @@ namespace Malloc.Pages
             Data = new(XRouteService);
             Data.OnAddPoint += Data_OnAddPoint;
             objRef = DotNetObjectReference.Create(Data);
-
-
         }
 
         private void Data_OnAddPoint(List<Itinero.RouterPoint> Points)
