@@ -29,32 +29,36 @@
     </div>
 
     <div class="sidebar">
-        <h1>Malloc</h1>
-        <div class="input-container">
-            <label>Podaj adres</label>
-            <div class="search-bar">
-                <input type="text" value=" " class="input-search"/>
-                <div class="add-input" id="add-input" onclick="addElement()">+</div>
-            </div>
-            <input type="file" id="file-input" />
-            <div class="input-results" id="result">
-                <table id="table" class="table"> 
-                    <thead>
-                        <tr> 
-                            <th>Miasto</th>
-                            <th>Ulica</th>
-                            <th>Kod pocztowy</th>
-                            <th>Akcje</th>
-                        </tr>
-                    </thead>
-                    <tbody  id="table-body">
+        <header>
+            <h1>Malloc</h1>
+        </header>
+        <main>
+            <div class="input-container">
+                <label>Podaj adres</label>
+                <div class="search-bar">
+                    <input type="text" value=" " class="input-search"/>
+                    <div class="add-input" id="add-input" onclick="addElement()">+</div>
+                </div>
+                <input type="file" class="file-input" id="file-input" />
+                <div class="input-results" id="result">
+                    <table id="table" class="table"> 
+                        <thead>
+                            <tr> 
+                                <th>Miasto</th>
+                                <th>Ulica</th>
+                                <th>Kod pocztowy</th>
+                                <th>Akcje</th>
+                            </tr>
+                        </thead>
+                        <tbody  id="table-body">
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
+                <button onclick="printTest()"> Wyznacz trase </button>
             </div>
-        </div>
-        <button onclick="printTest()"> Sortuj! </button>
-    </div>
+        </main>
+        
 
     <script src="_framework/blazor.server.js"></script>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
