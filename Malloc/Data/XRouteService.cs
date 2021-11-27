@@ -14,15 +14,19 @@ namespace Malloc.Data
 {
     public class XRouteService
     {
-        public static readonly Profile DefaultProfile = Vehicle.Car.Shortest();
+        public static readonly Profile DefaultProfile = Vehicle.Car.Fastest();
         private const string DatabaseFilename = "my.db";
         private const string OSMFilename = "pomorskie-latest.osm.pbf";
         private readonly RouterDb RouterDb;
 
+        public readonly IHttpClientFactory _clientFactory;
+
         public readonly Router Router;
 
-        public XRouteService()
+        public XRouteService(IHttpClientFactory clientFactory)
         {
+            _clientFactory = clientFactory;
+           
             RouterDb = new RouterDb();
 
             if (File.Exists(DatabaseFilename))
@@ -55,6 +59,7 @@ namespace Malloc.Data
             Router = new Router(RouterDb);
         }
 
+  
         public bool Solve(List<RouterPoint> Points, int StartIndex, int EndIndex, out List<RouterPoint> NewPoints)
         {
             NewPoints = new List<RouterPoint>(Points.Count);

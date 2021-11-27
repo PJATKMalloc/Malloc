@@ -22,7 +22,7 @@ namespace Malloc.Pages
 
         }
 
-        private void Data_OnAddPoint(List<Itinero.RouterPoint> Points)
+        private void Data_OnAddPoint(List<RouterPoint> Points)
         {
            var NewPoints = new List<Itinero.RouterPoint>();
 
