@@ -36,21 +36,22 @@
                 <input type="text" value=" " class="input-search"/>
                 <div class="add-input" id="add-input" onclick="addElement()">+</div>
             </div>
-            <div class="input-results">
-            </div>
-                    <table id="table" class="table"> 
+            <input type="file" id="file-input" />
+            <div class="input-results" id="result">
+                <table id="table" class="table"> 
                     <thead>
-                    <tr> 
-                        <th>Miasto</th>
-                        <th>Ulica</th>
-                        <th>Kod pocztowy</th>
-                        <th>Akcje</th>
-                    </tr>
+                        <tr> 
+                            <th>Miasto</th>
+                            <th>Ulica</th>
+                            <th>Kod pocztowy</th>
+                            <th>Akcje</th>
+                        </tr>
                     </thead>
-                    <tbody>
+                    <tbody  id="table-body">
+
                     </tbody>
-                    
-                    </table>
+                </table>
+            </div>
         </div>
         <button onclick="printTest()"> Sortuj! </button>
     </div>
