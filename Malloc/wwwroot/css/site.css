@@ -9,64 +9,6 @@ html, body {
     height: 100vh;
 }
 
-.sidebar
-{
-    position: absolute;
-    top:0;
-    left:0;
-    width:30vw;
-    height:100vh;
-    background: lightgray;
-    z-index:500;
-}
-.action-buttons{
-    display: flex;
-    flex-direction: row;
-}
-.table{
-    height: 50vh;
-    display:none;
-    overflow-y:scroll;
-}
-
-.tbl-header {
-    margin-top: 20px;
-}
-.input-container
-{
-    display:flex;
-    flex-direction: column;
-    width:80%;
-    margin:auto;
-}
-
-.search-bar
-{
-    display:flex;
-}
-
-.add-input
-{
-    padding:5px;
-    background:white;
-    border-radius: 100%;
-    margin-left:5px;
-    cursor:pointer;
-}
-
-.input-search{
-    width:80%;
-}
-
-.input-results{
-    height: auto;
-    background:white;
-    width:80%;
-    border-color: black;
-    border-style: solid;
-    border-width: 0px 1px 1px 1px;
-}
-
 h1:focus {
     outline: none;
 }
@@ -125,8 +67,3 @@ a, .btn-link {
     .blazor-error-boundary::after {
         content: "An error has occurred."
     }
-
-.leaflet-control-zoom
-{
-    display:none;
-}
