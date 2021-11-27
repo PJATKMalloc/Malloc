@@ -2,8 +2,13 @@ using Itinero;
 using Itinero.IO.Osm;
 using Itinero.Osm.Vehicles;
 using Malloc.Data;
+using Malloc.Model;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using Newtonsoft.Json;
+
+LocationJSON m = JsonConvert.DeserializeObject<LocationJSON>(File.ReadAllText("startPoint.json"));
+string name = m.City;
 
 var builder = WebApplication.CreateBuilder(args);
 
