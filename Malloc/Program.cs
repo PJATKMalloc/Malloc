@@ -5,7 +5,9 @@ using Malloc.Data;
 using Malloc.Model;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using Newtonsoft.Json;
 
+var AA = JsonConvert.DeserializeObject<LocationJSON>(File.ReadAllText("startPoint.json"));
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
