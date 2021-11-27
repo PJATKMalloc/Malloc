@@ -19,7 +19,19 @@ html, body {
     background: lightgray;
     z-index:500;
 }
+.action-buttons{
+    display: flex;
+    flex-direction: row;
+}
+.table{
+    height: 50vh;
+    display:none;
+    overflow-y:scroll;
+}
 
+.tbl-header {
+    margin-top: 20px;
+}
 .input-container
 {
     display:flex;
@@ -38,7 +50,7 @@ html, body {
     padding:5px;
     background:white;
     border-radius: 100%;
-    margin-left:10px;
+    margin-left:5px;
     cursor:pointer;
 }
 
