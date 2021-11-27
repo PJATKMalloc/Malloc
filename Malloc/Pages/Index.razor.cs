@@ -43,7 +43,6 @@ namespace Malloc.Pages
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
-
             if (firstRender)
             {
                 await JSRuntime.InvokeAsync<object>("leafletJsFunctions.initialize", objRef);
