@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>83b3d4fc-e6d7-4bff-9996-2580a05268aa</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <Platforms>AnyCPU;x64</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Itinero.IO.Osm" Version="1.5.1" />
+    <PackageReference Include="Itinero.Optimization" Version="1.0.0-pre022" />
+    <PackageReference Include="ManagedCuda.NETStandard" Version="9.1.300" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Itinero.Optimization">
+      <HintPath>..\..\repos\optimization\src\Itinero.Optimization\bin\Debug\net6.0\Itinero.Optimization.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
