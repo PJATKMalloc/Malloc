@@ -12,7 +12,6 @@ namespace Malloc.Pages
         private DotNetObjectReference<XRouteJS>? objRef;
         private Itinero.Route NewRoute;
 
-
         protected override void OnInitialized()
         {
             Data = new(XRouteService);
