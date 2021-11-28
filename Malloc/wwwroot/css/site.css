@@ -18,6 +18,8 @@ img{
 }
 
 .sidebar
+.sidebar,
+.sidebar-2
 {
     position: absolute;
     top:0; 
@@ -26,16 +28,64 @@ img{
     background: #141E30;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to left, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to left, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    
     box-shadow: 5px 0px 6px 0px #9E9E9E;
-    min-width:40vw;
     z-index:500;
+    transition: all ease-in-out 1s;
 }
-.action-buttons{
+
+.sidebar{
+    width:40vw;
+}
+
+.sidebar-2{
+    width:0vw;
+    transform: translateX(-100%);
+}
+
+.sidebar-2 i{
+    position: absolute;
+    top:5%;
+    left:50%;
+    transform: translateX(-50%);
+    cursor:pointer;
+    color:rgba(255, 255, 255, 0.81);
+    padding:5px;
+}
+
+.sidebar-2 i:hover,
+.sidebar i:hover{
+    background:rgba(255, 255, 255, 0.219);
+}
+
+header{
     display: flex;
-    flex-direction: row;
+    padding: 10px 10px;
 }
+
+h1{
+    font-size: 7vw;
+    color:white;
+    flex:2;
+}
+#expand-menu{
+    color:rgba(255, 255, 255, 0.849);
+    position: relative;
+    flex:1;
+}
+
+#expand-menu i{
+   position: absolute;
+   top:50%;
+   right:10%;
+   transform: translateY(-50%);
+   cursor:pointer;
+   padding:5px;
+}
+
+
+
 .table{
+    width:100%;
     height: 50vh;
     display:none;
     overflow-y:scroll;
@@ -58,11 +108,12 @@ th{
     color: #fff;
     text-transform: uppercase;
   }
-  tr{
+tr{
     width:100%;
   }
-  td{
+td{
     padding: 5px;
+    width:auto;
     text-align: left;
     vertical-align:middle;
     font-weight: 300;
@@ -78,7 +129,7 @@ th{
 {
     display:flex;
     flex-direction: column;
-    width:80%;
+    width:90%;
     margin:auto;
     background:rgba(255, 255, 255, 0.488);
     padding:15px;
@@ -161,17 +212,20 @@ input[type="file"] {
 
 button{
     margin-top:15px;
-    border-radius: 25px;
-    border:1px solid black;
-    background-color: white;
+    border-radius: 15px;
+    font-size:20px;
+    border: none;
+    background:white;
+    padding:5px;
     width:50%;
     margin-left:25%;
+    position:relative;
+    transition: all ease-in-out 0.2s;
 }
 
-h1{
-    font-size: 7vw;
+button:hover{
+    background: rgba(63, 63, 63, 0.87);
     color:white;
-    padding: 10px 0 0 10px;
 }
 
 .fa-times-circle{
@@ -279,4 +333,38 @@ a, .btn-link {
 .leaflet-control-zoom
 {
     display:none;
+}
+
+@keyframes fadeOut 
+{
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.fadeOut
+{
+    animation-name: fadeOut;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn
+{
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+.fadeIn
+{
+    animation-name: fadeIn;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
 }

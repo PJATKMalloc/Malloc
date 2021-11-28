@@ -28,13 +28,19 @@
         <a href="" class="reload">Reload</a>
         <a class="dismiss">🗙</a>
     </div>
-
-
-    <div class="sidebar">
+  
+    <div id="sidebar-2" class="sidebar-2"style="width:10vw;">
+        <i id="arrow-2"class="fas fa-angle-right fa-5x"></i>
+    </div>
+    <div class="sidebar" id="sidebar">
         <header>
-        <div class="logo"> 
-            <img src="/logo.png" alt="logo">
-        </div>
+            <div class="logo"> 
+              <img src="/logo.png" alt="logo">
+            </div>
+            <div id="expand-menu">
+                <i class="fas fa-angle-left fa-5x" id="arrow-1"></i>
+            </div>
+          
         </header>
         <main>
             <div class="input-container">
@@ -46,7 +52,7 @@
                         </div>
                     </div>
                     <div class="tip" data-text="Dodaj lokalizacje do tablicy" id="add-input" onclick="addElement()">
-                        <i class="far fa-plus-square" style="color:white;"></i>
+                        <i class="fas fa-plus" style="color:white"></i>
                     </div>
                 </div>
                 <label for="file-input" class="custom-file-upload">
