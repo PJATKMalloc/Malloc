@@ -6,9 +6,9 @@ using Malloc.Model;
 using Microsoft.JSInterop;
 using Newtonsoft.Json;
 
-namespace Malloc.Pages
+namespace Malloc.Components
 {
-    public partial class Index
+    public partial class Map
     {
         public XRouteJS Data;
         private DotNetObjectReference<XRouteJS>? objRef;

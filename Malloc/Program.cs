@@ -2,9 +2,11 @@ using Itinero;
 using Itinero.IO.Osm;
 using Itinero.Osm.Vehicles;
 using Malloc.Data;
+using Malloc.Data.AutocompleteModel;
 using Malloc.Model;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 
 //var AA = JsonConvert.DeserializeObject<LocationJSON>(File.ReadAllText("startPoint.json"));
@@ -25,8 +27,9 @@ builder.Services.AddSingleton<XRouteService>().AddHttpClient("komoto", (a) =>
         MaxConnectionsPerServer = 500,
         UseCookies = true,
     };
-}); 
+});
 
+builder.Services.AddDbContextFactory<nominatimContext>(opt => opt.UseNpgsql(builder.Configuration.GetConnectionString("AutocompleteConn")));
 
 
 
