@@ -9,6 +9,15 @@ html, body {
     height: 100vh;
 }
 
+img{
+    display: block;
+    margin: 0 auto;
+}
+.logo{
+    margin: 10px 0;
+}
+
+.sidebar
 .sidebar,
 .sidebar-2
 {
@@ -16,10 +25,10 @@ html, body {
     top:0; 
     left:0;
     height:100vh;
-    background: #2C3E50;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #4CA1AF, #2C3E50);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #4CA1AF, #2C3E50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    box-shadow: 5px 0px 5px 0px #2e2e2e79;
+    background: #141E30;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    box-shadow: 5px 0px 6px 0px #9E9E9E;
     z-index:500;
     transition: all ease-in-out 1s;
 }
@@ -80,9 +89,10 @@ h1{
     height: 50vh;
     display:none;
     overflow-y:scroll;
-    background: #2C3E50;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #4CA1AF, #2C3E50);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #4CA1AF, #2C3E50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #141E30;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      
     margin:0;
     border-radius: 15px;
 }
@@ -129,6 +139,7 @@ td{
 .search-bar
 {
     display:flex;
+    margin-top: 10px;
 }
 
 .add-input
@@ -138,14 +149,60 @@ td{
     cursor:pointer;
 }
 
-.input-search{
-    width:80%;
+input[type="file"] {
+    display: none;
 }
 
-.file-input{
-    margin: 10px 0;
+.custom-file-upload{
+    margin: 20px 0;
+    border-radius: 30px;
+    border: 2px solid #000;
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 150px;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+.custom-file-upload:hover{
+    background: rgba(63, 63, 63, 0.87);
+    color:white;
 }
 
+.center .inputbox {
+  position: relative;
+  width: 200px;
+  height: 50px;
+  z-index:2;
+}
+.center .inputbox input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  border: 2px solid #000;
+  outline: none;
+  background: none;
+  padding: 10px;
+  border-radius: 30px;
+  font-size: 1.2em;
+}
+.center .inputbox span {
+  position: absolute;
+  top: 14px;
+  left: 20px;
+  font-size: 1em;
+  transition: 0.6s;
+  font-family: sans-serif;
+}
+.center .inputbox input:valid ~ span,
+.center .inputbox input:focus ~ span {
+  transform: translateX(0px) translateY(-35px);
+  font-size: 1em;
+}
+
+.center .inputbox span {
+    z-index:-1;
+    color:black;
+}
 
 .input-results{
     height: auto;
