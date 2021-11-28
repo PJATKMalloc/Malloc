@@ -29,19 +29,31 @@
         <a class="dismiss">🗙</a>
     </div>
 
+
     <div class="sidebar">
         <header>
-            <h1>Malloc</h1>
+        <div class="logo"> 
+            <img src="/logo.png" alt="logo">
+        </div>
         </header>
         <main>
             <div class="input-container">
-                <label>Podaj adres</label>
                 <div class="search-bar">
-                    <input type="text" value=" " class="input-search"/>
+                    <div class="center">
+                        <div class="inputbox">
+                            <input type="text" required="required">
+                            <span>Wprowadź adres</span>
+                        </div>
+                    </div>
                     <div class="tip" data-text="Dodaj lokalizacje do tablicy" id="add-input" onclick="addElement()">
                         <i class="far fa-plus-square" style="color:white;"></i>
                     </div>
                 </div>
+                <label for="file-input" class="custom-file-upload">
+                <i class="fa fa-cloud-upload"></i>
+                <span> Załącz plik </span>
+                
+                </label>
                 <input type="file" class="file-input" id="file-input" />
                 <div class="input-results" id="result">
                     <table id="table" class="table"> 
