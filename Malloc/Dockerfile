@@ -1,14 +1,14 @@
-#See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
-
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 WORKDIR /app
-EXPOSE 5000
+EXPOSE 80
+EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["Malloc/Malloc.csproj", "Malloc/"]
 RUN dotnet restore "Malloc/Malloc.csproj"
 COPY . .
+
 WORKDIR "/src/Malloc"
 RUN dotnet build "Malloc.csproj" -c Release -o /app/build
 
