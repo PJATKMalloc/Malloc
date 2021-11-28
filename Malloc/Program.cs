@@ -7,13 +7,27 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Newtonsoft.Json;
 
-var AA = JsonConvert.DeserializeObject<LocationJSON>(File.ReadAllText("startPoint.json"));
+//var AA = JsonConvert.DeserializeObject<LocationJSON>(File.ReadAllText("startPoint.json"));
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-builder.Services.AddSingleton<XRouteService>();
+builder.Services.AddSingleton<XRouteService>().AddHttpClient("komoto", (a) =>
+{
+    a.BaseAddress =  new Uri("http://172.17.0.134:5431");
+}).ConfigurePrimaryHttpMessageHandler(() =>
+{
+    return new HttpClientHandler()
+    {
+        AllowAutoRedirect = true,
+        UseDefaultCredentials = true,
+        MaxConnectionsPerServer = 500,
+        UseCookies = true,
+    };
+}); 
+
+
 
 
 var app = builder.Build();
