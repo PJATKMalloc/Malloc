@@ -1,31 +1,56 @@
-var addNew = document.getElementById('add-input');
 
 var table = document.getElementById('table');
 var tbodyRef = table.getElementsByTagName('tbody')[0];
 table.style.display = 'none';
 
-addNew.addEventListener('click', function(e){
-    alert('dzieki dziala');
-});
+var parsedData = [];
 
-var parsedData;
+function addElement() {
+    const newElement = new Object();
+        newElement.StreetNumber = "938",
+        newElement.Street = "al. Niepodległości",
+        newElement.PostalCode = "81-861",
+        newElement.City = "Sopot",
+        newElement.OpenTime = "08:00:00",
+        newElement.CloseTime = "16:00:00"
+        console.log(newElement);
+        console.log(parsedData);
+        parsedData.push(newElement);
+
+
+        // if (parsedData.length > 0) {
+        //     console.log("istnieje tablica");
+        // }else{
+        //     newArray = [];
+        //     newArray.push(newElement);
+        // }
+        createTable(parsedData);
+    };
 
 function printTest(data) {
-    parsedData = JSON.parse(data);
+    console.log("Przed");
+    console.log(parsedData);
+
+    JSON.parse(data).forEach(element => {
+        parsedData.push(element);
+    });
+    //parsedData.push(JSON.parse(data));
+    console.log("PO");
+    console.log(parsedData);
     createTable(parsedData);
 }
 
 
-const createTable = (data) => {
+const createTable = () => {
     var tb = document.getElementById('table-body');
     var out = '';
 
-    for (let i = 0; i < data.length; i++) {
+    for (let i = 0; i < parsedData.length; i++) {
         console.log(i)
-        var el = data[i];
+        var el = parsedData[i];
 
-        out+= 
-            "<tr><td>" + el.City + "</td><td style='width:100%'>" + el.Street + " " + el.StreetNumber + "</td><td>" + el.PostalCode +"</td><td style='text-align:center;' onclick='onDelete(" + i + ")'><i class='far fa-times-circle'></i></td></tr>";
+        out +=
+            "<tr><td>" + el.City + "</td><td style='width:100%'>" + el.Street + " " + el.StreetNumber + "</td><td>" + el.PostalCode + "</td><td style='text-align:center;' onclick='onDelete(" + i + ")'><i class='far fa-times-circle'></i></td></tr>";
     }
 
     tb.innerHTML = out;
