@@ -10,8 +10,7 @@ services:
     - "5000:5000"
     depends_on:
      - "nominatim"
-    networks:
-      - aspnetcoreapp-network
+
 
   nominatim:
         container_name: localizationService
@@ -19,19 +18,13 @@ services:
         restart: always
         ports:
             - "5431:8080"
-            - "5432:5432"
         environment:
             PBF_URL: https://download.geofabrik.de/europe/poland/pomorskie-latest.osm.pbf
             REPLICATION_URL: https://download.geofabrik.de/europe/poland/pomorskie-updates/
             NOMINATIM_PASSWORD: very_secure_password
-        networks:
-            - aspnetcoreapp-network
         volumes:
             - C:/Database:/var/lib/postgresql/12/main
         shm_size: 1gb
         
 
-networks:
- aspnetcoreapp-network:
-  driver: bridge
 

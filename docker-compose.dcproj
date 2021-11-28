@@ -3,7 +3,7 @@
   <PropertyGroup Label="Globals">
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Linux</DockerTargetOS>
-    <ProjectGuid>332e0079-fd89-4a23-ba3b-da02a1297045</ProjectGuid>
+    <ProjectGuid>d574de30-49b6-48f2-b969-12c2bb4fb9da</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}</DockerServiceUrl>
     <DockerServiceName>malloc</DockerServiceName>
