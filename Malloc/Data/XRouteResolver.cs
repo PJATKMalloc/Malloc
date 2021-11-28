@@ -6,6 +6,7 @@
  */
 
 using Itinero;
+using Malloc.Model;
 
 namespace Malloc.Data
 {
@@ -13,6 +14,7 @@ namespace Malloc.Data
     {
         #region Public Members
         public RouterPoint[] Points { get; private set; }
+        public TimeWindow[] Times { get; private set; }
 
         /// <summary>
         /// Połączenia między punktami
@@ -34,13 +36,14 @@ namespace Malloc.Data
         #endregion
 
         #region Constructors
-        public XRouteResolver(RouterPoint[] Points, int StartIndex, int EndIndex, float[][] CostMatrix)
+        public XRouteResolver(RouterPoint[] Points, int StartIndex, int EndIndex, float[][] CostMatrix, TimeWindow[] Times)
         {
             this.N = Points.Length;
             this.Points = Points;
             this.StartIndex = StartIndex;
             this.EndIndex = EndIndex;
             this.CostMatrix = CostMatrix;
+            this.Times = Times;
 
             this.Connections = NearestNeighbor();
         }
@@ -170,14 +173,20 @@ namespace Malloc.Data
   
         private float CalculateDistance(int[] Connections)
         {
-            float Distance = 0;
-
+            float travelTime = 0.0f;
+            float bad = 0;
+            float waitTime = 5*60;
             for (int i = 0; i < N - 1; ++i)
             {
-                Distance += CostMatrix[Connections[i]][Connections[i + 1]];
+                travelTime += CostMatrix[Connections[i]][Connections[i + 1]];
+                travelTime += waitTime;
+                if (!(travelTime >= Times[i+1].Min && travelTime <=  Times[i+1].Max))
+                {
+                    bad+=999999;
+                }
             }
 
-            return Distance;
+            return travelTime + bad;
         }
 
         private float CalculateDistance()

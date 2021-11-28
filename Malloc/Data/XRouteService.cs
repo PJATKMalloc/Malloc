@@ -83,15 +83,16 @@ namespace Malloc.Data
             if (Points.Count > 2)
             {
 
-               /* var XRoute = new XRouteResolver(Points.ToArray(), StartIndex, EndIndex, DistanceMatrix);
+                float m = Times.Min(x => x.Min);
+                Times = Times.Select(x => new TimeWindow() { Min = x.Min - m, Max = x.Max - m }).ToList();
+                var XRoute = new XRouteResolver(Points.ToArray(), StartIndex, EndIndex, DistanceMatrix, Times.ToArray());
                 XRoute.Solve();
                 foreach (var Index in XRoute.Connections)
                 {
                     NewPoints.Add(Points[Index]);
-                }*/
-                
-                float m = Times.Min(x => x.Min);
-                Times = Times.Select(x => new TimeWindow() { Min = x.Min - m, Max = x.Max - m }).ToList();
+                }
+                /*
+    
                 var asddd = new TSPTWProblem(StartIndex, StartIndex, DistanceMatrix, Times.ToArray());
                 RandomSolver aadd = new RandomSolver();
            
@@ -106,7 +107,7 @@ namespace Malloc.Data
                 foreach (var Index in arr)
                 {
                     NewPoints.Add(Points[Index]);
-                }
+                }*/
 
                 return (NewPoints.Count > 2);
             }

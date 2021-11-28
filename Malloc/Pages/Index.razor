@@ -1,27 +1,54 @@
 ﻿@page "/"
+@using Malloc.Components
 @inject IJSRuntime JSRuntime
 @inject XRouteService XRouteService
 @using System.Numerics
 @using Malloc.Data
 
 
-    <div class="sidebar">
+
+
+      
+<div id="map"></div>
+
+ <div id="sidebar-2" class="sidebar-2">
+        <i id="arrow-2"class="fas fa-angle-right fa-5x"></i>
+    </div>
+    <div class="sidebar" id="sidebar">
         <header>
-            <h1>Malloc</h1>
+            <div class="logo"> 
+              <img src="/logo.png" alt="logo">
+            </div>
+            <div id="expand-menu">
+                <i class="fas fa-angle-left fa-5x" id="arrow-1"></i>
+            </div>
+          
         </header>
         <main>
             <div class="input-container">
-                @if (NewRoute != null)
-            {
-                            <p>@(NewRoute.TotalDistance/1000.0f)</p>
-                  <p>@(NewRoute.TotalTime/60.0f)</p>
-            }
-                <label>Podaj adres</label>
                 <div class="search-bar">
-                    <input type="text" value=" " class="input-search"/>
-                    <div class="add-input" id="add-input" onclick="addElement()">+</div>
+                    <div class="center">
+                        <div class="inputbox">
+                            <input type="text" required="required">
+                            <span>Wprowadź adres</span>
+                        </div>
+                    </div>
+                    <div class="tip" data-text="Dodaj lokalizacje do tablicy" id="add-input" onclick="addElement()">
+                        <i class="fas fa-plus" style="color:white"></i>
+                    </div>
                 </div>
+                <label for="file-input" class="custom-file-upload">
+                <i class="fa fa-cloud-upload"></i>
+                <span> Załącz plik </span>
+                
+                </label>
                 <input type="file" class="file-input" id="file-input" />
+                
+                                           @if (NewRoute != null)
+            {
+                            <p>Odległość: @(NewRoute.TotalDistance/1000.0f) km</p>
+                  <p>Czas: @(NewRoute.TotalTime/60.0f) min.</p>
+            }
                 <div class="input-results" id="result">
                     <table id="table" class="table"> 
                         <thead>
@@ -37,8 +64,7 @@
                         </tbody>
                     </table>
                 </div>
-                <Button @onclick="(MouseEventArgs e) => Data_OnSolve()"> Wyznacz trase </Button>
+                <button @onclick=(Data_OnSolve)> Wyznacz trase </button>
             </div>
         </main>
         </div>
-<div id="map"></div>

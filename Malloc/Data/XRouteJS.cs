@@ -128,4 +128,13 @@ namespace Malloc.Data
 
 
     }
+
+    public struct TimeWindow
+    {
+
+        public float Min { get; set; }
+
+        public float Max { get; set; }
+
+    }
 }
