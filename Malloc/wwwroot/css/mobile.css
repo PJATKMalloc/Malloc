@@ -1,0 +1,11 @@
+@media screen and (max-width: 992px) {
+    .sidebar{
+        width:100%;
+    }
+    .sidebar-2{
+        width:20vw;
+    }    
+    .table{
+        height:25vh;
+    }
+}
