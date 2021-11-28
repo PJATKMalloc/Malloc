@@ -4,26 +4,41 @@
 @using System.Numerics
 @using Malloc.Data
 
+
     <div class="sidebar">
-        <h1>Malloc</h1>
-        <div class="input-container">
-            <label>Podaj adres</label>
-            <div class="search-bar">
-                <input type="text" value=" " class="input-search"/>
-                <div class="add-input">+</div>
-            </div>
-            <div class="input-results">
+        <header>
+            <h1>Malloc</h1>
+        </header>
+        <main>
+            <div class="input-container">
+                @if (NewRoute != null)
+            {
+                            <p>@(NewRoute.TotalDistance/1000.0f)</p>
+                  <p>@(NewRoute.TotalTime/60.0f)</p>
+            }
+                <label>Podaj adres</label>
+                <div class="search-bar">
+                    <input type="text" value=" " class="input-search"/>
+                    <div class="add-input" id="add-input" onclick="addElement()">+</div>
+                </div>
+                <input type="file" class="file-input" id="file-input" />
+                <div class="input-results" id="result">
+                    <table id="table" class="table"> 
+                        <thead>
+                            <tr> 
+                                <th>Miasto</th>
+                                <th>Ulica</th>
+                                <th>Kod pocztowy</th>
+                                <th>Akcje</th>
+                            </tr>
+                        </thead>
+                        <tbody  id="table-body">
 
+                        </tbody>
+                    </table>
+                </div>
+                <Button @onclick="(MouseEventArgs e) => Data_OnSolve()"> Wyznacz trase </Button>
             </div>
-            <div>
-                @if(NewRoute!=null)
-{
-	<p>Distance: @(NewRoute.TotalDistance/1000.0f) km</p>
-	<p>Time: @(NewRoute.TotalTime/60.0f) min</p>
-    <p>@Data?.Points.Count</p>
-}
-            </div>
+        </main>
         </div>
-    </div>
-
 <div id="map"></div>

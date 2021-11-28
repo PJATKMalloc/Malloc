@@ -54,6 +54,8 @@ namespace Malloc.Data
         {
             Opt();
             this.Distance = CalculateDistance();
+        
+
         }
 
         #region NearestNeighbor
