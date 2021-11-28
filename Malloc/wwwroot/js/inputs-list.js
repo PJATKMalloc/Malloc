@@ -25,7 +25,7 @@ const createTable = (data) => {
         var el = data[i];
 
         out+= 
-            "<tr><td>" + el.City + "</td><td>" + el.Street + " " + el.StreetNumber + "</td><td>" + el.PostalCode +"</td><td style='text-align:center;' onclick='onDelete(" + i + ")'><i class='far fa-times-circle'></i></td></tr>";
+            "<tr><td>" + el.City + "</td><td style='width:100%'>" + el.Street + " " + el.StreetNumber + "</td><td>" + el.PostalCode +"</td><td style='text-align:center;' onclick='onDelete(" + i + ")'><i class='far fa-times-circle'></i></td></tr>";
     }
 
     tb.innerHTML = out;
@@ -51,5 +51,22 @@ fileinput.addEventListener('input', (event) => {
         jsonFile = event.target.result;
         printTest(jsonFile);
     }
+});
+
+var arrow1 = document.getElementById('arrow-1');
+var arrow2 = document.getElementById('arrow-2');
+var sidebar = document.getElementById('sidebar');
+var sidebar2 = document.getElementById('sidebar-2');
+arrow1.addEventListener('click', () => {
+    sidebar.classList.remove('fadeIn');
+    sidebar2.classList.remove('fadeOut');
+    sidebar.classList.add('fadeOut');
+    sidebar2.classList.add('fadeIn');
+});
+arrow2.addEventListener('click', () => {
+    sidebar2.classList.remove('fadeIn');
+    sidebar.classList.remove('fadeOut');
+    sidebar2.classList.add('fadeOut');
+    sidebar.classList.add('fadeIn');
 });
 

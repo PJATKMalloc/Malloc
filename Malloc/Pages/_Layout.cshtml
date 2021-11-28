@@ -28,10 +28,15 @@
         <a href="" class="reload">Reload</a>
         <a class="dismiss">🗙</a>
     </div>
-
-    <div class="sidebar">
+    <div id="sidebar-2" class="sidebar-2"style="width:10vw;">
+        <i id="arrow-2"class="fas fa-angle-right fa-5x"></i>
+    </div>
+    <div class="sidebar" id="sidebar">
         <header>
             <h1>Malloc</h1>
+            <div id="expand-menu">
+                <i class="fas fa-angle-left fa-5x" id="arrow-1"></i>
+            </div>
         </header>
         <main>
             <div class="input-container">
@@ -39,7 +44,7 @@
                 <div class="search-bar">
                     <input type="text" value=" " class="input-search"/>
                     <div class="tip" data-text="Dodaj lokalizacje do tablicy" id="add-input" onclick="addElement()">
-                        <i class="far fa-plus-square" style="color:white;"></i>
+                        <i class="fas fa-plus" style="color:white"></i>
                     </div>
                 </div>
                 <input type="file" class="file-input" id="file-input" />
