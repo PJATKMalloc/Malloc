@@ -17,7 +17,6 @@ img{
     margin: 10px 0;
 }
 
-.sidebar
 .sidebar,
 .sidebar-2
 {
@@ -28,7 +27,7 @@ img{
     background: #141E30;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to left, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to left, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    box-shadow: 5px 0px 6px 0px #9E9E9E;
+    box-shadow: 5px 0px 4px 0px #303030af;
     z-index:500;
     transition: all ease-in-out 1s;
 }
