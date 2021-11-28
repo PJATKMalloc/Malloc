@@ -89,6 +89,14 @@ namespace Malloc.Data
             }
         }
 
+             [JSInvokableAttribute("Clear")]
+        public void Clear()
+        {
+           Points.Clear();
+           Times.Clear();
+         
+        }
+
         [JSInvokableAttribute("Solve")]
         public void Solve()
         {

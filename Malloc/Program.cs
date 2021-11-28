@@ -15,7 +15,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<XRouteService>().AddHttpClient("komoto", (a) =>
 {
-    a.BaseAddress =  new Uri("http://172.17.0.134:8080");
+    a.BaseAddress =  new Uri("http://172.17.0.134:5431");
 }).ConfigurePrimaryHttpMessageHandler(() =>
 {
     return new HttpClientHandler()

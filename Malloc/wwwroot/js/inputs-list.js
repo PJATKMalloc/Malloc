@@ -1,4 +1,3 @@
-
 var table = document.getElementById('table');
 var tbodyRef = table.getElementsByTagName('tbody')[0];
 table.style.display = 'none';
@@ -15,7 +14,7 @@ function addElement() {
         newElement.CloseTime = "16:00:00"
         console.log(newElement);
         console.log(parsedData);
-        parsedData.push(newElement);
+        parsedData.unshift(newElement);
 
 
         // if (parsedData.length > 0) {
@@ -41,16 +40,18 @@ function printTest(data) {
 }
 
 
-const createTable = () => {
+const createTable = async () => {
     var tb = document.getElementById('table-body');
     var out = '';
+
+    await dh.invokeMethodAsync("Clear", el);
+    layerGroup.clearLayers();
 
     for (let i = 0; i < parsedData.length; i++) {
         console.log(i)
         var el = parsedData[i];
-
-        out +=
-            "<tr><td>" + el.City + "</td><td style='width:100%'>" + el.Street + " " + el.StreetNumber + "</td><td>" + el.PostalCode + "</td><td style='text-align:center;' onclick='onDelete(" + i + ")'><i class='far fa-times-circle'></i></td></tr>";
+        await dh.invokeMethodAsync("AddAddress", el);
+        out += "<tr><td>" + el.City + "</td><td style='width:100%'>" + el.Street + " " + el.StreetNumber + "</td><td>" + el.PostalCode + "</td><td style='text-align:center;' onclick='onDelete(" + i + ")'><i class='far fa-times-circle'></i></td></tr>";
     }
 
     tb.innerHTML = out;

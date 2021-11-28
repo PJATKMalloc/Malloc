@@ -21,7 +21,7 @@ window.leafletJsFunctions =
             return dh.invokeMethodAsync('AddPoint', e.latlng.lat, e.latlng.lng);
         });*/
 
-        LoadTest();
+        //LoadTest();
     },
 
     addMarker: function (lat, lng, tooltip) {
@@ -38,13 +38,4 @@ window.leafletJsFunctions =
     }
 };
 
-function LoadTest() {
-    fetch("/js/locations.json")
-        .then(res => res.json())
-        .then(data => {
-            data.forEach(async (element) => {
-                await dh.invokeMethodAsync('AddAddress', element);
-            });
-        })
-        .catch(error => console.log(error));
-}
+
