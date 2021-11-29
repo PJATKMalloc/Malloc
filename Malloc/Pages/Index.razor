@@ -1,12 +1,12 @@
 ﻿@page "/"
+@using Malloc.Components
 @inject IJSRuntime JSRuntime
 @inject XRouteService XRouteService
 @using System.Numerics
 @using Malloc.Data
 
-@if(NewRoute!=null)
-{
-	<p>Distance: @(NewRoute.TotalDistance/1000.0f) km</p>
-	<p>Time: @(NewRoute.TotalTime/60.0f) min</p>
-}
+
+
+
+      
 <div id="map"></div>
