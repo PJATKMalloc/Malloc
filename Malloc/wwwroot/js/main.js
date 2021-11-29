@@ -12,7 +12,7 @@ window.leafletJsFunctions =
             attribution: '',
             id: 'mapbox/streets-v11',
             tileSize: 512,
-            zoomOffset: -1,
+            zoomOffset: -1
         }).addTo(map);
 
         layerGroup = L.featureGroup().addTo(map);
